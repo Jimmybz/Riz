@@ -24,6 +24,7 @@ const sessionConfig = {
 }
 app.use(session(sessionConfig))
 app.use(flash());
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.use((req, res, next) => {
     res.locals.success = req.flash('success');
@@ -37,6 +38,10 @@ app.get("/", (req, res)=>{
 
 app.get("/info", (req, res)=>{
     res.render("Riz/info")
+})
+
+app.get("/location", (req, res)=>{
+    res.render("Riz/location")
 })
 
 app.all('*', (req, res, next) => {
