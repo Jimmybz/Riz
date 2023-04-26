@@ -40,10 +40,6 @@ app.get("/info", (req, res)=>{
     res.render("Riz/info")
 })
 
-app.get("/location", (req, res)=>{
-    res.render("Riz/location")
-})
-
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))
 })
